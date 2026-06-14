@@ -12,9 +12,10 @@
 }
 
 .logo{
-  font-size:2rem;
+  font-size:40px;
   font-weight:700;
   color:#38bdf8;
+  text-decoration: none;
 }
 
 .nav-links{
@@ -50,4 +51,8 @@
   display:flex;
   align-items:center;
   gap:20px;
+}
+
+.cart-container{
+  color: white;
 }
