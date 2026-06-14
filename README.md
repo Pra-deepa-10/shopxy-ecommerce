@@ -108,31 +108,6 @@ src
 
 ---
 
-<<<<<<< HEAD
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# shopxy-ecommerce
-Modern Ecommerce Store built with React featuring product search, shopping cart management, quantity controls, routing, and responsive UI.
-
-🚀 Features
-
-✔ Product Listing
-✔ Shopping Cart
-✔ Add / Remove Products
-✔ Quantity Management
-✔ Product Search
-✔ React Router Navigation
-✔ Responsive UI
-✔ Modern Dark Theme
-
-🛠 Built With
-
-- React
-- React Router
-- CSS3
-- JavaScript ES6
->>>>>>> a0ee392b863b3229dd25208eba8d32ffb4618d42
-=======
 ## 🔄 Current Development Progress
 
 ### Completed ✅
@@ -209,4 +184,4 @@ This project was built to practice:
 Pradeepa S
 
 Built as part of my React learning journey and frontend portfolio development.
->>>>>>> a1fca14c71ce577bfa228080d5f8c7c8d54daa66
+
