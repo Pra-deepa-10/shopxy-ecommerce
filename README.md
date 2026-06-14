@@ -136,7 +136,7 @@ src
 Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/shopxy-ecommerce.git
+git clone https://github.com/Pra-deepa-10/shopxy-ecommerce.git
 ```
 
 Navigate into the project:
