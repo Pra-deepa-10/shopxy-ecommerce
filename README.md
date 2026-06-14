@@ -95,12 +95,16 @@ src
 * Search Bar
 * Category Filters
 
+![Home Page](screenshots/home-page.png)
+
 ### Cart Page
 
 * Product List
 * Quantity Controls
 * Remove Item
 * Total Price Calculation
+
+![Cart Page](screenshots/cart-page.png)
 
 ---
 
