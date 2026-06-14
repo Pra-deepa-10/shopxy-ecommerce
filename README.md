@@ -3,7 +3,7 @@ Modern Ecommerce Store built with React featuring product search, shopping cart 
 
 🚀 Features
 
-✔ Product Listing
+- ✔ Product Listing
 ✔ Shopping Cart
 ✔ Add / Remove Products
 ✔ Quantity Management
