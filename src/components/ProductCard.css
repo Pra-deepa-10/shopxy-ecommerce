@@ -43,19 +43,3 @@
   cursor:pointer;
 }
 
-.sort-container{
-  display:flex;
-  justify-content:end;
-  margin-bottom:20px;
-}
-
-.sort-container select{
-  padding:1px 10px;
-  border:none;
-  border-radius:10px;
-  background:#0f172a;
-  color:white;
-  font-size:1rem;
-  cursor:pointer;
-  outline:none;
-}
