@@ -5,6 +5,7 @@ import { useState } from 'react';
 function ProductSection({cartItems, setCartItems}){
 
     const [searchTerm, setSearchTerm] = useState('');
+    const [sortBy, setSortBy] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
     
     const products = [
@@ -72,6 +73,20 @@ const filteredProducts = products.filter(product => {
   return matchesSearch && matchesCategory;
 });
 
+const sortedProducts = [...filteredProducts];
+
+if (sortBy === 'low') {
+  sortedProducts.sort(
+    (a, b) => a.price - b.price
+  );
+}
+
+if (sortBy === 'high') {
+  sortedProducts.sort(
+    (a, b) => b.price - a.price
+  );
+}
+
 function addToCart(product) {
   const existingItem = cartItems.find(
     item => item.id === product.id
@@ -115,9 +130,16 @@ function addToCart(product) {
                 <button onClick={() => setSelectedCategory('Accessories')}>Accessories</button>
                 <button onClick={() => setSelectedCategory('Monitor')}>Monitor</button>
             </div>
+            <div className="sort-container">
+                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                    <option value="">Sort Products</option>
+                    <option value="low">Price: Low → High</option>
+                    <option value="high">Price: High → Low</option>
+                </select>
+            </div>
             <div className="products-grid">
                 
-                {filteredProducts.map(product => (
+                {sortedProducts.map(product => (
                     <ProductCard
                     key={product.id} title={product.title} price={product.price} image={product.image} 
                     addToCart={() => addToCart(product)}/>)
