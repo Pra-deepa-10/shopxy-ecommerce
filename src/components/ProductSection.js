@@ -3,6 +3,7 @@ import './ProductSection.css'
 import products from '../data/products'
 import { useState } from 'react';
 
+
 function ProductSection({cartItems, setCartItems}){
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -92,8 +93,13 @@ function addToCart(product) {
                 
                 {sortedProducts.map(product => (
                     <ProductCard
-                    key={product.id} title={product.title} price={product.price} image={product.image} 
-                    addToCart={() => addToCart(product)}/>)
+  key={product.id}
+  id={product.id}
+  title={product.title}
+  price={product.price}
+  image={product.image}
+  addToCart={() => addToCart(product)}
+/>)
                 )}
             </div>
         </section>

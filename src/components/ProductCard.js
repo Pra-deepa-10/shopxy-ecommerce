@@ -1,27 +1,35 @@
 import './ProductCard.css';
+import { useNavigate } from "react-router-dom";
 
-function ProductCard(props) {
-  
- function handleClick() {
-  props.addToCart();
-}
+function ProductCard({
+  id,
+  title,
+  price,
+  image,
+  addToCart
+}) 
 
-   
+{const navigate = useNavigate();
 
   return (
-    <div className="product-card">
+    <div
+      className="product-card"
+      onClick={() => navigate(`/product/${id}`)}
+    >
+      <img src={image} alt={title} />
 
-      <img
-        src={props.image}
-        alt={props.title}
-      />
+      <h3>{title}</h3>
 
-      <h3>{props.title}</h3>
+      <p>₹{price}</p>
 
-      <p>₹{props.price}</p>
-
-      <button onClick={handleClick}> Add to Cart </button>
-
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          addToCart();
+        }}
+      >
+        Add To Cart
+      </button>
     </div>
   );
 }

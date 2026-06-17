@@ -1,14 +1,15 @@
 import { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
-
 import Navbar from './components/Navbar';
-
 import Home from './pages/Home';
 import Cart from './pages/Cart';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ProductSection from "./components/ProductSection";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
 
   const [cartItems, setCartItems] = useState([]);
+  
 
   return (
     <>
@@ -16,25 +17,13 @@ function App() {
 
       <Routes>
 
-        <Route
-          path="/"
-          element={
-            <Home
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-            />
-          }
-        />
+        <Route path="/" element={<Home cartItems={cartItems} setCartItems={setCartItems}/>} />
 
-        <Route
-          path="/cart"
-          element={
-            <Cart
-              cartItems={cartItems}
-              setCartItems={setCartItems}
-            />
-          }
-        />
+        <Route path="/cart" element={<Cart cartItems={cartItems} setCartItems={setCartItems}/>} />
+
+        <Route path="/" element={<ProductSection />} />
+
+        <Route path="/product/:id" element={<ProductDetails cartItems={cartItems} setCartItems={setCartItems}/>}/>
 
       </Routes>
     </>
