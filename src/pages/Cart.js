@@ -1,6 +1,10 @@
 import './Cart.css'
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 
-function Cart({ cartItems, setCartItems }) {
+function Cart() {
+
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   function removeItem(id) {
     const updatedCart = cartItems.filter(

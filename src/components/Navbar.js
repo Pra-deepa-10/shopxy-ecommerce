@@ -1,14 +1,18 @@
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import CartContext from '../context/CartContext';
 import { FaShoppingCart } from 'react-icons/fa'       //This gives us a ready-made icon component.
 
-function Navbar({cartItems}) {
+function Navbar() {
+
+  const { cartItems } = useContext(CartContext);
+
+
   return (
     <nav className="navbar">
 
-      <Link to='/' className="logo">
-        ShopXY
-      </Link>
+      <Link to='/' className="logo">ShopXY</Link>
 
       <ul className="nav-links">
         <li>Home</li>
@@ -20,15 +24,11 @@ function Navbar({cartItems}) {
       <div className="nav-icons">
 
         <Link to="/cart" className="cart-container">
+          <FaShoppingCart className="cart-icon"/>
+          <span className="cart-badge">{cartItems.length}</span>
+        </Link>     
 
-            <FaShoppingCart className="cart-icon"/>
-
-            <span className="cart-badge">{cartItems.length}</span>
-</Link>     
-
-        <button className="login-btn">
-          Login
-        </button>
+        <button className="login-btn">Login</button>
       </div>
 
     </nav>

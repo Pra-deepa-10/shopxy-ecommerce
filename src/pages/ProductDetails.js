@@ -2,10 +2,13 @@ import { useParams } from "react-router-dom";
 import products from "../data/products";
 import "./ProductDetails.css";
 import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import CartContext from "../context/CartContext";
 
-function ProductDetails({ setCartItems }) {
+function ProductDetails() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const { cartItems, setCartItems } = useContext(CartContext);
   const product = products.find(
     (p) => p.id === Number(id)
   );

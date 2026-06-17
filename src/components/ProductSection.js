@@ -1,14 +1,17 @@
 import ProductCard from './ProductCard'
 import './ProductSection.css'
 import products from '../data/products'
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import CartContext from '../context/CartContext';
 
 
-function ProductSection({cartItems, setCartItems}){
+function ProductSection(){
 
     const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('All');
+
+    const { cartItems, setCartItems } = useContext(CartContext);
 
 
 const filteredProducts = products.filter(product => {
