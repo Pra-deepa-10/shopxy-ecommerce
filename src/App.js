@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
@@ -8,8 +8,15 @@ import ProductDetails from "./pages/ProductDetails";
 
 function App() {
 
-  const [cartItems, setCartItems] = useState([]);
-  
+  const [cartItems, setCartItems] = useState(() => {
+  const savedCart = localStorage.getItem('cart');
+        return savedCart
+          ? JSON.parse(savedCart)
+          : [];
+  });
+
+  useEffect(() => {localStorage.setItem('cart', JSON.stringify(cartItems));}, [cartItems]);
+        
 
   return (
     <>
