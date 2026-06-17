@@ -6,6 +6,16 @@ A modern Ecommerce Store built with React that allows users to browse products, 
 
 ## 🚀 Features
 
+* Product listing page
+* Product search functionality
+* Category-based filtering
+* Price sorting (Low → High / High → Low)
+* Dynamic product details page using React Router
+* Shopping cart management
+* Product ratings and stock information
+* Related products recommendations
+* Responsive modern UI
+
 ### Product Catalog
 
 * Display products in a responsive grid layout
@@ -75,8 +85,12 @@ src
 │
 ├── pages
 │   ├── Home.js
-│   └── Cart.js
-│
+|   ├── Cart.js
+│   └── ProductDetails.js
+|   
+├── data
+|   └──products.js 
+|
 ├── styles
 │   └── global.css
 │
@@ -109,28 +123,28 @@ src
 ---
 
 ## 🔄 Current Development Progress
-
 ### Completed ✅
 
-* React Router Setup
-* Hero Section
-* Product Listing
-* Reusable Components
-* Add To Cart
-* Quantity Management
-* Cart Total Calculation
-* Product Search
-* Category Filtering
+- ✅ React Router Setup
+- ✅ Hero Section
+- ✅ Product Listing
+- ✅ Reusable Components
+- ✅ Add To Cart
+- ✅ Quantity Management
+- ✅ Cart Total Calculation
+- ✅ Product Search
+- ✅ Category Filtering
+- ✅ Product Sorting
+- ✅ Product Details Page
+- ✅ Related Products
+- ✅ Ratings & Stock Display
 
 ### Upcoming Features 🚧
 
-* Product Sorting
-* Product Details Page
-* Context API
-* Local Storage Persistence
+* Cart Persistence with localStorage
 * Wishlist
-* Authentication
-* Checkout Flow
+* Context API State Management
+* Firebase Authentication
 * Deployment
 
 ---
