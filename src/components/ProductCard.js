@@ -2,6 +2,7 @@ import './ProductCard.css';
 import { useNavigate } from "react-router-dom";
 import { useContext } from 'react';
 import WishlistContext from '../context/WishlistContext';
+import { toast } from 'react-toastify';
 
 function ProductCard({id, title, price, image, addToCart}){
   const navigate = useNavigate();
@@ -11,8 +12,9 @@ function ProductCard({id, title, price, image, addToCart}){
   function toggleWishlist(e) {
   e.stopPropagation();
   if (isWishlisted) {
-
-    setWishlistItems(prev => prev.filter( item => item.id !== id)); } 
+    setWishlistItems(prev => prev.filter( item => item.id !== id));
+    toast.info(`${title} removed from wishlist`); 
+  } 
   else {
     setWishlistItems(prev => [...prev,{
         id,
@@ -21,6 +23,7 @@ function ProductCard({id, title, price, image, addToCart}){
         image
       }
     ]);
+    toast.success(`${title} added to wishlist`);
 
   }
 }

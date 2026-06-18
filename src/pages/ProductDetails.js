@@ -4,6 +4,7 @@ import "./ProductDetails.css";
 import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import CartContext from "../context/CartContext";
+import { toast } from 'react-toastify';
 
 function ProductDetails() {
   const { id } = useParams();
@@ -33,6 +34,7 @@ function ProductDetails() {
       }
 
       return [...prev, { ...product, quantity: 1 }];
+      toast.success(`${product.title} added to cart`);
     });
   }
 

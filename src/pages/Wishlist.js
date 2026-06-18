@@ -2,6 +2,7 @@ import { useContext } from "react";
 import WishlistContext from "../context/WishlistContext";
 import "./Wishlist.css";
 import { useNavigate } from "react-router-dom";
+import { toast } from 'react-toastify';
 
 function Wishlist() {
 

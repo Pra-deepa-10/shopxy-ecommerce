@@ -3,6 +3,7 @@ import './ProductSection.css'
 import products from '../data/products'
 import { useState, useContext } from 'react';
 import CartContext from '../context/CartContext';
+import { toast } from 'react-toastify';
 
 
 function ProductSection(){
@@ -52,15 +53,11 @@ function addToCart(product) {
       prev.map(item =>
         item.id === product.id ?{...item,quantity: item.quantity + 1}: item )
     );
+    toast.success(`${product.title} quantity updated`);
 } 
   else {
-    setCartItems(prev => [
-      ...prev,
-      {
-        ...product,
-        quantity: 1
-      }
-    ]);
+    setCartItems(prev => [...prev, {...product, quantity: 1}]);
+    toast.success(`${product.title} added to cart`);
   }
 
 }
