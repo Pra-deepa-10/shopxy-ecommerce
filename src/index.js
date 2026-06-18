@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 import App from './App';
 import { CartProvider } from './context/CartContext';
+import {WishlistProvider} from './context/WishlistContext';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -11,7 +12,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <CartProvider>
-      <App />
+      <WishlistProvider>
+        <App />
+      </WishlistProvider>
     </CartProvider>
   </BrowserRouter>
 );

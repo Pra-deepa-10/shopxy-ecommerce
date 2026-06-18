@@ -1,28 +1,41 @@
 import './ProductCard.css';
 import { useNavigate } from "react-router-dom";
+import { useContext } from 'react';
+import WishlistContext from '../context/WishlistContext';
 
-function ProductCard({
-  id,
-  title,
-  price,
-  image,
-  addToCart
-}) 
+function ProductCard({id, title, price, image, addToCart}){
+  const navigate = useNavigate();
+  const {wishlistItems, setWishlistItems} = useContext(WishlistContext);
+  const isWishlisted = wishlistItems.some(item => item.id === id);
 
-{const navigate = useNavigate();
+  function toggleWishlist(e) {
+  e.stopPropagation();
+  if (isWishlisted) {
+
+    setWishlistItems(prev => prev.filter( item => item.id !== id)); } 
+  else {
+    setWishlistItems(prev => [...prev,{
+        id,
+        title,
+        price,
+        image
+      }
+    ]);
+
+  }
+}
+  
 
   return (
-    <div
-      className="product-card"
-      onClick={() => navigate(`/product/${id}`)}
-    >
+    <div className="product-card" onClick={() => navigate(`/product/${id}`)}>
+      <button className="wishlist-btn" onClick={toggleWishlist}>{isWishlisted ? '❤️' : '🤍'}</button>
       <img src={image} alt={title} />
 
       <h3>{title}</h3>
 
       <p>₹{price}</p>
 
-      <button
+      <button className="add-cart-btn"
         onClick={(e) => {
           e.stopPropagation();
           addToCart();
