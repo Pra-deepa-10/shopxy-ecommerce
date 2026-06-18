@@ -3,13 +3,29 @@ import WishlistContext from "../context/WishlistContext";
 import "./Wishlist.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
+import CartContext from "../context/CartContext";
 
 function Wishlist() {
 
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
   const navigate = useNavigate();
+  const { cartItems, setCartItems } = useContext(CartContext);
 
   function removeWishlist(id) {setWishlistItems(prev => prev.filter(item => item.id !== id));}
+  
+  function addToCart(product) {
+
+  const existingItem = cartItems.find(item => item.id === product.id);
+
+  if (existingItem) {
+    setCartItems(prev => prev.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1}: item));
+    toast.success(`${product.title} quantity updated`);}
+  else {
+    setCartItems(prev => [...prev,{...product, quantity: 1}]);
+    toast.success(`${product.title} added to cart`);
+  }
+  
+}
 
 
   return (
@@ -33,7 +49,10 @@ function Wishlist() {
 
               <p>₹{item.price}</p>
 
-              <button onClick={(e) => {e.stopPropagation();
+              <button className="cart-btn" onClick={(e) => {e.stopPropagation();
+               addToCart(item);}}>Add To Cart</button>
+
+              <button className="remove-btn" onClick={(e) => {e.stopPropagation();
                 removeWishlist(item.id);}}>Remove</button>
 
             </div>

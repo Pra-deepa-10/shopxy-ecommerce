@@ -22,6 +22,7 @@
   display:flex;
   gap:40px;
   list-style:none;
+  color: white;
 }
 
 .nav-links li{
@@ -59,4 +60,16 @@
 
 .wishlist-container{
   color: white;
+}
+
+/*login*/
+.user-section{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.user-email{
+  color:white;
+  font-size:.9rem;
 }

@@ -54,7 +54,7 @@ function addToCart(product) {
         item.id === product.id ?{...item,quantity: item.quantity + 1}: item )
     );
     toast.success(`${product.title} quantity updated`);
-} 
+  } 
   else {
     setCartItems(prev => [...prev, {...product, quantity: 1}]);
     toast.success(`${product.title} added to cart`);
@@ -63,49 +63,40 @@ function addToCart(product) {
 }
 
 
-    return(
-        <section className= "products">
-            <h2>Featured Products</h2>
-            <div className="search-container">
-                <input
-                    type="text"
-                    placeholder="Search products..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-            </div>
-            <div className="category-filter">
-                <button onClick={() => setSelectedCategory('All')}>All</button>
-                <button onClick={() => setSelectedCategory('Laptop')}>Laptop</button>
-                <button onClick={() => setSelectedCategory('Wearable')}>Wearable</button>
-                <button onClick={() => setSelectedCategory('Audio')}>Audio</button>
-                <button onClick={() => setSelectedCategory('Accessories')}>Accessories</button>
-                <button onClick={() => setSelectedCategory('Monitor')}>Monitor</button>
-            </div>
-            <div className="sort-container">
-                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                    <option value="">Sort Products</option>
-                    <option value="low">Price: Low → High</option>
-                    <option value="high">Price: High → Low</option>
-                </select>
-            </div>
-            <div className="products-grid">
-                
-                {sortedProducts.map(product => (
-                    <ProductCard
-  key={product.id}
-  id={product.id}
-  title={product.title}
-  price={product.price}
-  image={product.image}
-  addToCart={() => addToCart(product)}
-/>)
-                )}
-            </div>
-        </section>
-
+  return(
+    <section id="products" className= "products">
+      <h2>Featured Products</h2>
+      <div className="search-container">
+        <input type="text" placeholder="Search products..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}/>
+      </div>
+      <div id="categories" className="category-filter">
+        <button onClick={() => setSelectedCategory('All')}>All</button>
+        <button onClick={() => setSelectedCategory('Laptop')}>Laptop</button>
+        <button onClick={() => setSelectedCategory('Wearable')}>Wearable</button>
+        <button onClick={() => setSelectedCategory('Audio')}>Audio</button>
+        <button onClick={() => setSelectedCategory('Accessories')}>Accessories</button>
+        <button onClick={() => setSelectedCategory('Monitor')}>Monitor</button>
+      </div>
+      <div className="sort-container">
+        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+          <option value="">Sort Products</option>
+          <option value="low">Price: Low → High</option>
+          <option value="high">Price: High → Low</option>
+        </select>
+      </div>
+      <div className="products-grid">
+        {sortedProducts.map(product => (<ProductCard
+          key={product.id}
+          id={product.id}
+          title={product.title}
+          price={product.price}
+          image={product.image}
+          addToCart={() => addToCart(product)}/>))}
+      </div>
+    </section>
     )
 
+  
 }
-
+  
 export default ProductSection
