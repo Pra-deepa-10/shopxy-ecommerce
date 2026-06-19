@@ -6,8 +6,8 @@ import Footer from '../components/Footer';
 function Home() {
   return (
     <>
-      <Hero title="NEXUS TECH STORE" subtitle="Premium gadgets and accessories for modern creators"/>
-      <ProductSection />
+      <section id="home"><Hero title="Discover Premium Products" subtitle="Shop the trending gadgets, clothings and accessories."/></section>
+      <section id="products"><ProductSection /></section>
       <section id="contact" className="contact-section">
         <h2>Contact Us</h2>
         <p>📧 support@shopxy.com</p>

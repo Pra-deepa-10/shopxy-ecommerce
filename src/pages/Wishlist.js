@@ -19,10 +19,10 @@ function Wishlist() {
 
   if (existingItem) {
     setCartItems(prev => prev.map(item => item.id === product.id ? {...item, quantity: item.quantity + 1}: item));
-    toast.success(`${product.title} quantity updated`);}
+    toast.success(`Cart quantity updated`);}
   else {
     setCartItems(prev => [...prev,{...product, quantity: 1}]);
-    toast.success(`${product.title} added to cart`);
+    toast.success(`Item added to cart`);
   }
   
 }
@@ -34,7 +34,9 @@ function Wishlist() {
       <h1>My Wishlist ❤️</h1>
 
       {wishlistItems.length === 0 ? (
-        <h2>No wishlist items yet</h2>
+      
+        <h2>❤️ Your wishlist is empty</h2>
+       
       ) : (
 
         <div className="wishlist-grid">

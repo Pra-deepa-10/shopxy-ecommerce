@@ -18,7 +18,8 @@
 .wishlist-grid{
   display:grid;
   grid-template-columns:
-  repeat(auto-fit,minmax(250px,1fr));
+  repeat(auto-fit,minmax(250px,250px));
+  justify-content: center;
   gap:30px;
 }
 

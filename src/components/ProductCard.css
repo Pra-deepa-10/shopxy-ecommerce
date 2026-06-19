@@ -66,3 +66,20 @@
   transition:.2s;
 }
 
+@media (max-width:768px){
+
+  .product-card{
+    max-width:220px;
+    margin:0 auto;
+  }
+
+  .product-card img{
+    height:160px;
+    object-fit:contain;
+  }
+
+  .product-card h3{
+    font-size:.9rem;
+  }
+
+}

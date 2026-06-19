@@ -7,17 +7,13 @@ function Cart() {
   const { cartItems, setCartItems } = useContext(CartContext);
 
   function removeItem(id) {
-    const updatedCart = cartItems.filter(
-      item => item.id !== id
-    );
+    const updatedCart = cartItems.filter(item => item.id !== id);
     setCartItems(updatedCart);
   }
 
   function increaseQuantity(id) {
-    setCartItems(prev => 
-      prev.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item)
-    );
-  }
+  setCartItems(prev => prev.map(item => item.id === id ? {...item, quantity: (item.quantity || 1) + 1} : item ));
+}
 
   function decreaseQuantity(id) {
 
@@ -34,23 +30,25 @@ function Cart() {
   }
 
   const total = cartItems.reduce(
-    (sum, item) =>
-      (sum + item.price * item.quantity), 0);
+    (sum, item) => (sum + item.price * (item.quantity || 1)), 0);
 
   return (
     <div className="cart-page">
 
       <h1>Your Cart</h1>
 
-      {cartItems.length === 0 ? (<h2>Your Cart is Empty</h2>) : 
+      {cartItems.length === 0 ? (<div className="empty-cart">
+  <h2>🛒 Your Cart is Empty</h2>
+  <p>Add some products and come back.</p>
+</div>) : 
       ( <>
           {cartItems.map(item => (
-        <div className="cartItem" key={item.id}>
+        <div className="cart-item" key={item.id}>
           <div className="cart-left">
-              <img src={item.image} alt={item.title} className="cart-image" />
+            <img src={item.image} alt={item.title} className="cart-image" />
             <div className="cart-details">
              <h3>{item.title}</h3>
-             <p>₹{item.price}</p>
+             <p>₹{item.price * 83}</p>
               <div className="quantity-controls">
                <button onClick={() => decreaseQuantity(item.id)}> - </button>
                <span>{item.quantity}</span>
@@ -58,16 +56,14 @@ function Cart() {
               </div>
             </div>
           </div>
-              <button onClick={() => removeItem(item.id)}> Remove </button>
+              <button className="remove-btn" onClick={() => removeItem(item.id)}> Remove </button>
         </div>
           ))}
 
-          <h2>Total: ₹{total}</h2>
-
-          <button>
-            Checkout
-          </button>
-
+        <div className="cart-summary">
+          <h2>Total: ₹{(total*83).toFixed(2) }</h2>
+          <button className="checkout-btn">Proceed to Checkout</button>
+        </div>
         </>
       )}
 

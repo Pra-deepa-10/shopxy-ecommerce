@@ -3,14 +3,16 @@ import Home from './pages/Home';
 import Cart from './pages/Cart';
 import Login from "./pages/Login";
 import Wishlist from './pages/Wishlist';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import ProductSection from "./components/ProductSection";
 import ProductDetails from "./pages/ProductDetails";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from "./components/ProtectedRoute";
-
 import Signup from "./pages/Signup";
+import Products from "./pages/Products";
+import NotFound from "./pages/NotFound";
+import Contact from "./pages/Contact";
 
 function App() {
         
@@ -22,18 +24,26 @@ function App() {
       <Routes>
 
         <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} /> 
+        <Route path="/contact" element={<Contact />} />
+
         <Route path="/cart" element={
           <ProtectedRoute>
             <Cart />
-          </ProtectedRoute>}/>        
-        <Route path="/" element={<ProductSection />} />
-        <Route path="/product/:id" element={<ProductDetails />}/>
+          </ProtectedRoute>}/>    
+
         <Route path="/wishlist" element={
           <ProtectedRoute>
             <Wishlist />
           </ProtectedRoute>}/>
+
+        <Route path="/product/:id" element={<ProductDetails />}/>
+
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
+        
+        <Route path="*" element={<NotFound />} />
+        
 
       </Routes>
 

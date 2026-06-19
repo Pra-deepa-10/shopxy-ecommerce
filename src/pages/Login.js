@@ -1,8 +1,10 @@
+import "./Login.css";
 import { useState } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Login() {
 
@@ -24,17 +26,22 @@ function Login() {
   }
 
   return (
-    <div className="auth-page">
+  <div className="auth-page">
+    <div className="auth-card">
+      <h1>Welcome Back</h1>
+      <p className="auth-subtitle">Login to continue shopping</p>
 
-      <h1>Login</h1>
-
-      <form onSubmit={handleLogin}>
-        <input type="email" placeholder="Email" value={email} onChange={(e)=>setEmail(e.target.value)}/>
-        <input type="password" placeholder="Password" value={password} onChange={(e)=>setPassword(e.target.value)}/>
+      <form className="auth-form" onSubmit={handleLogin}>
+        <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <button type="submit">Login</button>
       </form>
+
+      <div className="auth-footer">Don't have an account?{" "}<Link to="/signup">Create Account</Link></div>
+
     </div>
-  );
+  </div>
+);
 }
 
 export default Login;

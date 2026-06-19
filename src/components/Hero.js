@@ -1,6 +1,9 @@
 import './Hero.css'
+import { useNavigate } from "react-router-dom";
 
 function Hero(props) {
+  const navigate = useNavigate(); 
+
   return (
     <section id="hero" className="hero">
 
@@ -14,9 +17,7 @@ function Hero(props) {
           {props.subtitle}
         </p>
 
-        <button>
-          Shop Now
-        </button>
+        <button onClick={() => navigate("/products")}>Shop Now</button>
 
       </div>
 

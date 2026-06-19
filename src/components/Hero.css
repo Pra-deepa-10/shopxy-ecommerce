@@ -1,5 +1,5 @@
 .hero{
-  min-height:80vh;
+  min-height:70vh;
   display:flex;
   justify-content:center;
   align-items:center;
@@ -21,7 +21,7 @@
 
 .hero-content p{
   color:#94a3b8;
-  font-size:0.9rem;
+  font-size:1.1rem;
   margin-bottom:40px;
 }
 

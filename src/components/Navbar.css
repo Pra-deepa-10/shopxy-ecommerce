@@ -9,6 +9,7 @@
   backdrop-filter:blur(12px);
   border-bottom:1px solid rgba(255,255,255,.05);
   z-index:1000;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
 .logo{
@@ -30,7 +31,18 @@
   transition:.3s;
 }
 
-.nav-links li:hover{
+.nav-links li:hover {
+  color: #38bdf8;
+  cursor: pointer;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#cbd5e1;
+  transition:.3s;
+}
+
+.nav-links a:hover{
   color:#38bdf8;
 }
 
@@ -72,4 +84,55 @@
 .user-email{
   color:white;
   font-size:.9rem;
+  max-width:150px;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+
+@media (max-width: 768px){
+
+  .navbar{
+    padding:15px 20px;
+    flex-wrap:wrap;
+    gap:15px;
+  }
+
+  .logo{
+    font-size:2rem;
+  }
+
+  .nav-links{
+    width:100%;
+    justify-content:center;
+    gap:15px;
+    flex-wrap:wrap;
+    font-size:0.9rem;
+  }
+
+  .nav-icons{
+    width:100%;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  .user-section{
+    flex-direction:column;
+    gap:8px;
+  }
+
+  .user-email{
+    max-width:180px;
+    text-align:center;
+  }
+
+  .login-btn{
+    padding:8px 16px;
+  }
+
+  .user-email{
+    display:none;
+  }
+
 }

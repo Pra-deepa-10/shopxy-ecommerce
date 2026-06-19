@@ -14,8 +14,9 @@
 .products-grid{
   display:grid;
   grid-template-columns:
-  repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
+  repeat(auto-fit,minmax(280px,280px));
+  justify-content: center;
+  gap:25px;
 }
 
 .search-container{
@@ -77,4 +78,13 @@
   font-size:1rem;
   cursor:pointer;
   outline:none;
+}
+
+@media (max-width:768px){
+
+  .products-grid{
+    grid-template-columns:1fr;
+    justify-items:center;
+  }
+
 }

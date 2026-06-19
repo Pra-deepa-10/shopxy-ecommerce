@@ -13,7 +13,7 @@ function ProductCard({id, title, price, image, addToCart}){
   e.stopPropagation();
   if (isWishlisted) {
     setWishlistItems(prev => prev.filter( item => item.id !== id));
-    toast.info(`${title} removed from wishlist`); 
+    toast.info(`Item removed from wishlist`); 
   } 
   else {
     setWishlistItems(prev => [...prev,{
@@ -23,7 +23,7 @@ function ProductCard({id, title, price, image, addToCart}){
         image
       }
     ]);
-    toast.success(`${title} added to wishlist`);
+    toast.success(`Item added to wishlist`);
 
   }
 }
