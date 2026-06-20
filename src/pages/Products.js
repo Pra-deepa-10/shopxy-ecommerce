@@ -69,7 +69,7 @@ function Products() {
             key={item.id}
             id={item.id}
             title={item.title}
-            price={item.price}
+            price={(item.price)*83}
             image={item.image}
             addToCart={() => addToCart({
                 id: item.id,
