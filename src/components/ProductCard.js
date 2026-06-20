@@ -36,7 +36,7 @@ function ProductCard({id, title, price, image, addToCart}){
 
       <h3>{title}</h3>
 
-      <p>₹{price}</p>
+      <p>₹{(price*83)}</p>
 
       <button className="add-cart-btn"
         onClick={(e) => {
