@@ -1,74 +1,87 @@
-# 🛒 ShopXY - React Ecommerce Store
+# 🛒 ShopXY - Modern React Ecommerce Store
 
-A modern Ecommerce Store built with React that allows users to browse products, search items, filter products by category, and manage a shopping cart with quantity controls.
+A fully responsive Ecommerce Web Application built with React.js, Firebase Authentication, Context API, and FakeStore API. Users can browse products, view detailed product information, manage a wishlist and shopping cart, and securely access protected routes.
+
+## 🌐 Live Demo
+
+🔗 https://shopxy-ecommerce-klmxti7xq-pradeepa-dev.vercel.app
 
 ---
 
 ## 🚀 Features
 
-* Product listing page
-* Product search functionality
-* Category-based filtering
-* Price sorting (Low → High / High → Low)
-* Dynamic product details page using React Router
-* Shopping cart management
-* Product ratings and stock information
-* Related products recommendations
-* Responsive modern UI
+### 🏠 Home Page
+- Hero Section
+- Featured Products
+- Search Functionality
+- Product Filtering
+- Product Sorting
+- Contact Section
 
-### Product Catalog
+### 🛍️ Products
+- Product Listing using FakeStore API
+- Dynamic Product Details Page
+- Related Products Suggestions
+- Product Ratings & Reviews
+- Product Category Display
 
-* Display products in a responsive grid layout
-* Reusable ProductCard component
-* Product image, title, and price display
+### ❤️ Wishlist
+- Add Products to Wishlist
+- Remove Products from Wishlist
+- Wishlist Count in Navbar
+- Protected Route Access
 
-### Search Functionality
+### 🛒 Shopping Cart
+- Add Products to Cart
+- Increase Quantity
+- Decrease Quantity
+- Remove Products
+- Dynamic Total Calculation
+- Cart Count in Navbar
+- Protected Route Access
 
-* Search products by name
-* Instant filtering while typing
+### 🔐 Authentication
+- Firebase Authentication
+- User Registration
+- User Login
+- Logout Functionality
+- Protected Routes for Cart & Wishlist
 
-### Category Filtering
+### 📱 Responsive Design
+- Mobile-Friendly Layout
+- Responsive Navbar
+- Responsive Product Cards
+- Responsive Cart & Wishlist Pages
+- Modern Dark Theme UI
 
-* Filter products by category
-* Categories:
-
-  * Laptop
-  * Wearable
-  * Audio
-  * Accessories
-  * Monitor
-
-### Shopping Cart
-
-* Add products to cart
-* Increase product quantity
-* Decrease product quantity
-* Remove products from cart
-* Automatic total price calculation
-
-### Navigation
-
-* React Router integration
-* Home page
-* Cart page
-
-### User Interface
-
-* Modern dark theme
-* Responsive product grid
-* Sticky navigation bar
-* Hover animations
-* Clean ecommerce layout
+### 🔔 Notifications
+- React Toastify Integration
+- Cart Notifications
+- Wishlist Notifications
+- Authentication Feedback
 
 ---
 
-## 🛠️ Built With
+## 🛠️ Tech Stack
 
-* React
-* React Router DOM
-* JavaScript (ES6+)
-* CSS3
-* React Icons
+### Frontend
+- React.js
+- React Router DOM
+- Context API
+- CSS3
+- React Icons
+
+### Authentication
+- Firebase Authentication
+
+### API
+- FakeStore API
+
+### Notifications
+- React Toastify
+
+### Deployment
+- Vercel
 
 ---
 
@@ -80,19 +93,28 @@ src
 ├── components
 │   ├── Hero.js
 │   ├── Navbar.js
+│   ├── Footer.js
 │   ├── ProductCard.js
-│   └── ProductSection.js
+│   ├── ProductSection.js
+│   └── ProtectedRoute.js
 │
 ├── pages
 │   ├── Home.js
-|   ├── Cart.js
-│   └── ProductDetails.js
-|   
-├── data
-|   └──products.js 
-|
-├── styles
-│   └── global.css
+│   ├── Products.js
+│   ├── ProductDetails.js
+│   ├── Cart.js
+│   ├── Wishlist.js
+│   ├── Login.js
+│   ├── Signup.js
+│   └── Contact.js
+│
+├── context
+│   ├── CartContext.js
+│   ├── WishlistContext.js
+│   └── AuthContext.js
+│
+├── firebase
+│   └── firebase.js
 │
 ├── App.js
 └── index.js
@@ -100,52 +122,49 @@ src
 
 ---
 
-## 📸 Current Features Preview
+## ✨ Key Functionalities
 
-### Home Page
+### Product Search
 
-* Hero Section
-* Featured Products
-* Search Bar
-* Category Filters
+- Search products instantly by name.
+- Real-time filtering while typing.
 
-![Home Page](screenshots/home-page.png)
+### Product Filtering
 
-### Cart Page
+- Filter products by category.
+- Dynamic category support.
 
-* Product List
-* Quantity Controls
-* Remove Item
-* Total Price Calculation
+### Product Sorting
 
-![Cart Page](screenshots/cart-page.png)
+- Price: Low → High
+- Price: High → Low
+
+### Dynamic Routing
+
+Implemented using React Router:
+
+```text
+/
+ /products
+ /product/:id
+ /cart
+ /wishlist
+ /login
+ /signup
+ /contact
+```
 
 ---
 
-## 🔄 Current Development Progress
-### Completed ✅
+## 🔒 Authentication Flow
 
-- ✅ React Router Setup
-- ✅ Hero Section
-- ✅ Product Listing
-- ✅ Reusable Components
-- ✅ Add To Cart
-- ✅ Quantity Management
-- ✅ Cart Total Calculation
-- ✅ Product Search
-- ✅ Category Filtering
-- ✅ Product Sorting
-- ✅ Product Details Page
-- ✅ Related Products
-- ✅ Ratings & Stock Display
+- Create Account
+- Login
+- Logout
+- Protected Cart Access
+- Protected Wishlist Access
 
-### Upcoming Features 🚧
-
-* Cart Persistence with localStorage
-* Wishlist
-* Context API State Management
-* Firebase Authentication
-* Deployment
+Powered by Firebase Authentication.
 
 ---
 
@@ -157,7 +176,7 @@ Clone the repository:
 git clone https://github.com/Pra-deepa-10/shopxy-ecommerce.git
 ```
 
-Navigate into the project:
+Navigate into project folder:
 
 ```bash
 cd shopxy-ecommerce
@@ -175,27 +194,66 @@ Start development server:
 npm start
 ```
 
+Build for production:
+
+```bash
+npm run build
+```
+
 ---
 
-## 🎯 Learning Objectives
+## 📸 Screenshots
 
-This project was built to practice:
+### Home Page
 
-* React Fundamentals
-* Components
-* Props
-* State Management
-* Event Handling
-* Conditional Rendering
-* List Rendering
-* React Router
-* Ecommerce Application Development
+Add screenshot here
+
+### Products Page
+
+Add screenshot here
+
+### Product Details Page
+
+Add screenshot here
+
+### Cart Page
+
+Add screenshot here
+
+### Wishlist Page
+
+Add screenshot here
+
+### Login Page
+
+Add screenshot here
+
+---
+
+## 🎯 What I Learned
+
+This project helped me strengthen my understanding of:
+
+- React Components
+- Props
+- State Management
+- Context API
+- React Router
+- Firebase Authentication
+- API Integration
+- Protected Routes
+- Responsive Design
+- Reusable Components
+- Ecommerce Application Architecture
 
 ---
 
 ## 👨‍💻 Author
 
-Pradeepa S
+### Pradeepa S
 
 Built as part of my React learning journey and frontend portfolio development.
 
+---
+
+⭐ If you like this project, consider giving it a star.
