@@ -1,10 +1,12 @@
 import './Cart.css'
 import { useContext } from 'react';
 import CartContext from '../context/CartContext';
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
 
   const { cartItems, setCartItems } = useContext(CartContext);
+  const navigate = useNavigate();
 
   function removeItem(id) {
     const updatedCart = cartItems.filter(item => item.id !== id);
@@ -48,7 +50,7 @@ function Cart() {
             <img src={item.image} alt={item.title} className="cart-image" />
             <div className="cart-details">
              <h3>{item.title}</h3>
-             <p>₹{item.price * 83}</p>
+             <p>${item.price}</p>
               <div className="quantity-controls">
                <button onClick={() => decreaseQuantity(item.id)}> - </button>
                <span>{item.quantity}</span>
@@ -61,8 +63,8 @@ function Cart() {
           ))}
 
         <div className="cart-summary">
-          <h2>Total: ₹{(total*83).toFixed(2) }</h2>
-          <button className="checkout-btn">Proceed to Checkout</button>
+          <h2>Total: ${(total)}</h2>
+          <button className="checkout-btn"  onClick={() => navigate("/checkout")}>Proceed to Checkout</button>
         </div>
         </>
       )}

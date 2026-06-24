@@ -5,6 +5,7 @@ import App from './App';
 import { CartProvider } from './context/CartContext';
 import {WishlistProvider} from './context/WishlistContext';
 import { AuthProvider } from "./context/AuthContext";
+import { OrderProvider } from "./context/OrderContext";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root')
@@ -15,7 +16,9 @@ root.render(
     <CartProvider>
       <WishlistProvider>
         <AuthProvider>
-          <App />
+          <OrderProvider>
+            <App />
+          </OrderProvider>
         </AuthProvider>
       </WishlistProvider>
     </CartProvider>

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import CartContext from "../context/CartContext";
 
+
 function Wishlist() {
 
   const { wishlistItems, setWishlistItems } = useContext(WishlistContext);
@@ -49,7 +50,7 @@ function Wishlist() {
 
               <h3>{item.title}</h3>
 
-              <p>₹{item.price}</p>
+              <p>${item.price}</p>
 
               <button className="cart-btn" onClick={(e) => {e.stopPropagation();
                addToCart(item);}}>Add To Cart</button>

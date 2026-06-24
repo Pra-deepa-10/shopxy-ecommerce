@@ -91,7 +91,7 @@ if (!product) {
         <div className="product-info">
           <h1>{product.title}</h1>
 
-          <p className="price">₹ {(product.price * 83).toFixed(0)}</p>
+          <p className="price"> $ {(product.price)}</p>
           <p>{product.category}</p>
           <p>{product.description}</p>
           <p className="in-stock">✅ In Stock</p>
@@ -111,7 +111,7 @@ if (!product) {
     e.target.src = "/placeholder.png";
   }}/>
                 <h4>{item.title}</h4>
-                <p>₹ {item.price * 83}</p>
+                <p>$ {(item.price)}</p>
             </div>
 
             ))}    

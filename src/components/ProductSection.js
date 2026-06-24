@@ -35,33 +35,20 @@
 
   const filteredProducts = products.filter(product => {
 
-    const matchesSearch =
-      product.title
-        .toLowerCase()
-        .includes(searchTerm.toLowerCase());
+    const matchesSearch = product.title.toLowerCase().includes(searchTerm.toLowerCase());
 
-    const matchesCategory =
-      selectedCategory === 'All' ||
-      product.category === selectedCategory;
+    const matchesCategory = selectedCategory === 'All' || product.category === selectedCategory;
 
     return matchesSearch && matchesCategory;
   });
 
   const sortedProducts = [...filteredProducts];
 
-  if (sortBy === 'low') {
-    sortedProducts.sort(
-      (a, b) => a.price - b.price
-    );
-  }
+  if (sortBy === 'low') { sortedProducts.sort((a, b) => a.price - b.price);}
 
-  if (sortBy === 'high') {
-    sortedProducts.sort(
-      (a, b) => b.price - a.price
-    );
-  }
+  if (sortBy === 'high') {sortedProducts.sort((a, b) => b.price - a.price);}
 
-  
+
   function addToCart(product) {
     const existingItem = cartItems.find(
       item => item.id === product.id
@@ -90,7 +77,7 @@
             key={product.id}
             id={product.id}
             title={product.title}
-            price={product.price * 83}
+            price={product.price}
             image={product.image}
             addToCart={() => addToCart(product)}/>))}
         </div>

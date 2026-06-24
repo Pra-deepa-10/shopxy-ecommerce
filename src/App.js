@@ -13,6 +13,8 @@ import Signup from "./pages/Signup";
 import Products from "./pages/Products";
 import NotFound from "./pages/NotFound";
 import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
+import Orders from "./pages/Orders";
 
 function App() {
         
@@ -43,6 +45,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         
         <Route path="*" element={<NotFound />} />
+        <Route path="/checkout" element={<Checkout />}/>
+
+        <Route path="/orders" element={<Orders />}/>
         
 
       </Routes>

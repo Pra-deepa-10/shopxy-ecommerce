@@ -28,8 +28,8 @@ function Login() {
   return (
   <div className="auth-page">
     <div className="auth-card">
-      <h1>Welcome Back</h1>
-      <p className="auth-subtitle">Login to continue shopping</p>
+      
+      <h2 className="auth-subtitle">Login to continue shopping</h2>
 
       <form className="auth-form" onSubmit={handleLogin}>
         <input type="email" placeholder="Email Address" value={email} onChange={(e) => setEmail(e.target.value)}/>
